@@ -1,5 +1,8 @@
+from typing import Any
+
 from sqlalchemy import NullPool, create_engine
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession, async_sessionmaker
+from sqlalchemy.orm import declarative_base
 
 from config import settings as s
 
@@ -18,8 +21,8 @@ SessionLocal = async_sessionmaker(
 sql_link_sync = sql_link.replace("postgresql+asyncpg://", "postgresql://")
 sync_engine = create_engine(sql_link_sync, echo=False, poolclass=NullPool)
 
+Base: Any = declarative_base()
+
 
 def create_tables_sync():
-    from src.api.models import Base
-
     Base.metadata.create_all(bind=sync_engine)

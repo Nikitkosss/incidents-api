@@ -25,15 +25,22 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 ```
 
+## Убедитесь, что у вас есть .env файл с переменными:
+```
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+POSTGRES_PORT=5434
+POSTGRES_SERVER=127.0.0.1
+```
+
+
 ## Запустите сервер
 
 ```
-POSTGRES_USER=nikita \
-POSTGRES_PASSWORD=postgres \
-POSTGRES_DB=postgres \
-POSTGRES_SERVER=127.0.0.1 \
-POSTGRES_PORT=5432 \
-uvicorn main:app --host 127.0.0.1 --port 8000 --reload
+uvicorn main:app --host 127.0.0.1 --port 8000
+# или через докер
+docker-compose up -d
 ```
 
 ### Сервер будет доступен по адресу: http://127.0.0.1:8000

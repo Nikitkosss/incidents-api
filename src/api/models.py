@@ -1,4 +1,3 @@
-from typing import Any
 from datetime import datetime
 from sqlalchemy import (
     Column,
@@ -6,9 +5,8 @@ from sqlalchemy import (
     DateTime,
     Integer,
 )
-from sqlalchemy.orm import declarative_base
 
-Base: Any = declarative_base()
+from src.database import Base
 
 
 class IncidentDB(Base):

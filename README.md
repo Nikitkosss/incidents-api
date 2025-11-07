@@ -22,7 +22,7 @@ POSTGRES_SERVER=127.0.0.1
 ## Запуск через Docker
 
 ```
-docker-compose up --build
+docker compose up --build
 ```
 
 ## Или создайте и активируйте виртуальное окружение (рекомендуется)

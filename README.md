@@ -10,7 +10,22 @@ git clone git@github.com:Nikitkosss/incidents-api.git
 cd incidents-api
 ```
 
-## Создайте и активируйте виртуальное окружение (рекомендуется)
+## Убедитесь, что у вас есть .env файл с переменными:
+```
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+POSTGRES_DB=postgres
+POSTGRES_PORT=5434
+POSTGRES_SERVER=127.0.0.1
+```
+
+## Запуск через Docker
+
+```
+docker-compose up --build
+```
+
+## Или создайте и активируйте виртуальное окружение (рекомендуется)
 
 ```
 python -m venv venv
@@ -25,22 +40,10 @@ venv\Scripts\activate       # Windows
 pip install -r requirements.txt
 ```
 
-## Убедитесь, что у вас есть .env файл с переменными:
-```
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-POSTGRES_DB=postgres
-POSTGRES_PORT=5434
-POSTGRES_SERVER=127.0.0.1
-```
-
-
 ## Запустите сервер
 
 ```
 uvicorn main:app --host 127.0.0.1 --port 8000
-# или через докер
-docker-compose up -d
 ```
 
 ### Сервер будет доступен по адресу: http://127.0.0.1:8000
